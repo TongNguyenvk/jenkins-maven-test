@@ -17,19 +17,22 @@ public class GradeConverter {
      * @param score the numerical score to convert
      * @return the corresponding letter grade
      */
-    public String convert(int score) {
-        if (score >= A_MIN && score <= MAX_SCORE) {
-            return "A";
-        } else if (score >= B_MIN) {
-            return "B";
-        } else if (score >= C_MIN) {
-            return "C";
-        } else if (score >= D_MIN) {
-            return "D";
-        } else if (score >= MIN_SCORE) {
-            return "E";
-        } else {
-            return "Invalid";
-        }
+    public String convert(final int score) {
+    if (score > MAX_SCORE || score < MIN_SCORE) {
+        return "Invalid";
     }
+
+    if (score >= A_MIN) {
+        return "A";
+    } else if (score >= B_MIN) {
+        return "B";
+    } else if (score >= C_MIN) {
+        return "C";
+    } else if (score >= D_MIN) {
+        return "D";
+    } else {
+        return "E";
+    }
+}
+
 }
