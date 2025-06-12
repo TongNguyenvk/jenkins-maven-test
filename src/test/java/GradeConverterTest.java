@@ -1,67 +1,66 @@
-import org.junit.Test;
 import org.junit.Before;
+import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-
+/**
+ * Unit tests for GradeConverter class.
+ */
 public class GradeConverterTest {
 
-    private GradeConverter  converter;
+    private GradeConverter converter;
+
+    private static final int SCORE_A_MAX = 100;
+    private static final int SCORE_A_MIN = 90;
+    private static final int SCORE_B = 80;
+    private static final int SCORE_C = 70;
+    private static final int SCORE_D = 60;
+    private static final int SCORE_E = 50;
+    private static final int SCORE_INVALID_HIGH = 101;
+    private static final int SCORE_INVALID_LOW = -10;
 
     @Before
-    public void setUp() throws Exception {
-        converter  = new GradeConverter();
+    public void setUp() {
+        converter = new GradeConverter();
     }
 
     @Test
-    public void testConvert1() throws Exception {
-        String expected = "A";
-        String actual = converter.convert(100);
-        assertEquals(expected,actual);
+    public void testScoreA_MaxBoundary() {
+        assertEquals("A", converter.convert(SCORE_A_MAX));
     }
 
     @Test
-    public void testConvert2() throws Exception {
-        String expected = "A";
-        String actual = converter.convert(90);
-        assertEquals(expected,actual);
-    }
-    @Test
-    public void testConvert3() throws Exception {
-        String expected = "B";
-        String actual = converter.convert(80);
-        assertEquals(expected,actual);
-    }
-    @Test
-    public void testConvert4() throws Exception {
-        String expected = "C";
-        String actual = converter.convert(70);
-        assertEquals(expected, actual);
-    }
-    @Test
-    public void testConvert5() throws Exception {
-        String expected = "D";
-        String actual = converter.convert(60);
-        assertEquals(expected,actual);
-    }
-    @Test
-    public void testConvert6() throws Exception {
-        String expected = "E";
-        String actual = converter.convert(50);
-        assertEquals(expected,actual);
-    }
-    @Test
-    public void testConvert7() throws Exception {
-        String expected = "Invalid";
-        String actual = converter.convert(101);
-        assertEquals(expected,actual);
-    }
-    @Test
-    public void testConvert8() throws Exception {
-        String expected = "Invalid";
-        String actual = converter.convert(-10);
-        assertEquals(expected,actual);
+    public void testScoreA_MinBoundary() {
+        assertEquals("A", converter.convert(SCORE_A_MIN));
     }
 
+    @Test
+    public void testScoreB() {
+        assertEquals("B", converter.convert(SCORE_B));
+    }
 
+    @Test
+    public void testScoreC() {
+        assertEquals("C", converter.convert(SCORE_C));
+    }
+
+    @Test
+    public void testScoreD() {
+        assertEquals("D", converter.convert(SCORE_D));
+    }
+
+    @Test
+    public void testScoreE() {
+        assertEquals("E", converter.convert(SCORE_E));
+    }
+
+    @Test
+    public void testInvalidScoreHigh() {
+        assertEquals("Invalid", converter.convert(SCORE_INVALID_HIGH));
+    }
+
+    @Test
+    public void testInvalidScoreLow() {
+        assertEquals("Invalid", converter.convert(SCORE_INVALID_LOW));
+    }
 }
