@@ -1,3 +1,4 @@
+package grade;
 /**
  * Class to convert numerical scores into corresponding letter grades.
  * <p>
@@ -35,7 +36,8 @@ public class GradeConverter {
      * Converts a numerical score to a letter grade based on a predefined scale.
      *
      * @param score the numerical score to convert (expected between 0 and 100)
-     * @return the corresponding letter grade ("A" to "E"), or "Invalid" if score is out of bounds
+     * @return the corresponding letter grade ("A" to "E"), or
+     * "Invalid" if score is out of bounds
      */
     public String convert(final int score) {
         if (score > MAX_SCORE || score < MIN_SCORE) {

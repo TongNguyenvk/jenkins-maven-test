@@ -1,3 +1,4 @@
+package grade;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -50,7 +51,7 @@ public class GradeConverterTest {
      * Tests grade A for maximum boundary value.
      */
     @Test
-    public void testScoreA_MaxBoundary() {
+    public void testScoreAMaxBoundary() {
         assertEquals("A", converter.convert(SCORE_A_MAX));
     }
 
@@ -58,7 +59,7 @@ public class GradeConverterTest {
      * Tests grade A for minimum boundary value.
      */
     @Test
-    public void testScoreA_MinBoundary() {
+    public void testScoreAMinBoundary() {
         assertEquals("A", converter.convert(SCORE_A_MIN));
     }
 
